@@ -13,7 +13,8 @@ public class InimigoController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        //Teste para ver se os inimigos aparecem infinitamente
+        //Invoke("Morrer", 2f);
     }
 
     public void Morrer()
