@@ -13,15 +13,11 @@ public class MenuInicial : MonoBehaviour
     {
         settingsPanel.SetActive(false);
         painelHighscore.SetActive(false);
-        AudioMannager.instance.PlayMusic(AudioMannager.instance.menuMusic);
+        audioMannager.PlayMusic(audioMannager.Music);
     }
 
     public void Jogar()
     {
-        if (AudioMannager.instance != null)
-        {
-            AudioMannager.instance.PlayMusic(AudioMannager.instance.gameplayMusic);
-        }
         SceneManager.LoadScene("SpaceInvPlay");
     }
 

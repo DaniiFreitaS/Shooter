@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class PauseManager : MonoBehaviour
 {
+    public AudioMannager audioMannager;
     public GameObject settingsPanel;
     public GameObject pauseMenu;
     private bool pausado = false;
@@ -17,6 +18,7 @@ public class PauseManager : MonoBehaviour
     private void Start()
     {
         pauseMenu.SetActive(false);
+        audioMannager.PlayMusic(audioMannager.Music);
 
         // Recarrega os valores REAIS do AudioMixer e aplica aos sliders
         sliderMaster.value = GetLinearVolume("MasterVolume");

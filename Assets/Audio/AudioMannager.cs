@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class AudioMannager : MonoBehaviour
 {
-    public static AudioMannager instance;
+    public  AudioMannager instance;
 
     [Header("Mixer Principal")]
     public AudioMixer mainMixer;
@@ -16,8 +16,7 @@ public class AudioMannager : MonoBehaviour
     public AudioSource masterSource;
 
     [Header("Músicas")]
-    public AudioClip menuMusic;
-    public AudioClip gameplayMusic;
+    public AudioClip Music;
 
     [Header("Efeitos Sonoros")]
     public AudioClip playerShoot;
@@ -33,52 +32,16 @@ public class AudioMannager : MonoBehaviour
         sliderMaster.value = GetLinearVolume("MasterVolume");
         sliderMusic.value = GetLinearVolume("MusicVolume");
         sliderSFX.value = GetLinearVolume("SFXVolume");
-        if (AudioMannager.instance != null)
-        {
-            AudioMannager.instance.PlayMusic(AudioMannager.instance.menuMusic);
-        }
+        
     }
     void Awake()
     {
-        if (instance == null)
-        {
-            instance = this;
-            DontDestroyOnLoad(gameObject); // <- Isso aqui faz a persistência
-            SceneManager.sceneLoaded += OnSceneLoaded;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-    }
-    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        // Tenta achar sliders na nova cena
         Slider masterSlider = GameObject.Find("MasterVolume")?.GetComponent<Slider>();
         Slider musicSlider = GameObject.Find("MusicVolume")?.GetComponent<Slider>();
         Slider sfxSlider = GameObject.Find("SFXVolume")?.GetComponent<Slider>();
-
-        if (masterSlider != null)
-        {
-            float val = GetLinearVolume("MasterVolume");
-            masterSlider.value = val;
-            SetVolumeGeral(val);
-        }
-
-        if (musicSlider != null)
-        {
-            float val = GetLinearVolume("MusicVolume");
-            musicSlider.value = val;
-            SetVolumeMusica(val);
-        }
-
-        if (sfxSlider != null)
-        {
-            float val = GetLinearVolume("SFXVolume");
-            sfxSlider.value = val;
-            SetVolumeSFX(val);
-        }
+        
     }
+    
 
     float GetLinearVolume(string parametro)
     {
