@@ -4,7 +4,7 @@ using System;
 public class InimigoController : MonoBehaviour
 {
     public Transform areaDisparo;
-    public static event Action<InimigoController> morrer;
+    public event Action<InimigoController> Falecimento;
     void Start()
     {
         
@@ -14,5 +14,11 @@ public class InimigoController : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void Morrer()
+    {
+        Falecimento?.Invoke(this);
+        Destroy(gameObject);
     }
 }
