@@ -1010,7 +1010,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6644713646023756503, guid: e6cbaac60d930d14a86a89c6e0199f57, type: 3}
+      - m_Target: {fileID: 4860073643665926518, guid: e6cbaac60d930d14a86a89c6e0199f57, type: 3}
         m_TargetAssemblyTypeName: AudioMannager, Assembly-CSharp
         m_MethodName: SetVolumeMusica
         m_Mode: 4
@@ -1990,7 +1990,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6644713646023756503, guid: e6cbaac60d930d14a86a89c6e0199f57, type: 3}
+      - m_Target: {fileID: 4860073643665926518, guid: e6cbaac60d930d14a86a89c6e0199f57, type: 3}
         m_TargetAssemblyTypeName: AudioMannager, Assembly-CSharp
         m_MethodName: SetVolumeSFX
         m_Mode: 4
@@ -3459,7 +3459,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6644713646023756503, guid: e6cbaac60d930d14a86a89c6e0199f57, type: 3}
+      - m_Target: {fileID: 4860073643665926518, guid: e6cbaac60d930d14a86a89c6e0199f57, type: 3}
         m_TargetAssemblyTypeName: AudioMannager, Assembly-CSharp
         m_MethodName: SetVolumeGeral
         m_Mode: 4

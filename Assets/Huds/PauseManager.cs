@@ -25,9 +25,7 @@ public class PauseManager : MonoBehaviour
         sliderMusic.value = GetLinearVolume("MusicVolume");
         sliderSFX.value = GetLinearVolume("SFXVolume");
 
-        SetVolume("MasterVolume", sliderMaster.value);
-        SetVolume("MusicVolume", sliderMusic.value);
-        SetVolume("SFXVolume", sliderSFX.value);
+
     }
 
     void Update()
@@ -39,12 +37,6 @@ public class PauseManager : MonoBehaviour
             else
                 Pausar();
         }
-    }
-    public void SetVolume(string parametro, float valor)
-    {
-        valor = Mathf.Clamp(valor, 0.0001f, 1f);
-        float dB = Mathf.Log10(valor) * 20f;
-        mainMixer.SetFloat(parametro, dB);
     }
     float GetLinearVolume(string parametro)
     {
