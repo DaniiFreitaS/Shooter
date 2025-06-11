@@ -15,6 +15,11 @@ public class SpawnInimigos : MonoBehaviour
         InstanciarInimigos();
     }
 
+    private void Update()
+    {
+        
+    }
+
 
     void InstanciarInimigos()
     {
@@ -36,6 +41,11 @@ public class SpawnInimigos : MonoBehaviour
         if (inimigosVivos.Contains(inimigo))
         {
             inimigosVivos.Remove(inimigo);
+        }
+        if (inimigosVivos.Count == 0)
+        {
+            Invoke("InstanciarInimigos", 2f);
+            
         }
     }
 }
