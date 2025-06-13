@@ -71,4 +71,8 @@ public class PauseManager : MonoBehaviour
         Time.timeScale = 1f;
         SceneManager.LoadScene("MenuInicial"); // Troque pelo nome da sua cena do menu
     }
+    public void SettingsFechar()
+    {
+        settingsPanel.SetActive(false);
+    }
 }

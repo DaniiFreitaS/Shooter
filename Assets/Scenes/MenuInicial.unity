@@ -508,6 +508,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7648206850903976, guid: dde56a43abea1c34fb4712e4cb7194bd, type: 3}
+      propertyPath: m_text
+      value: Space Invaders
+      objectReference: {fileID: 0}
+    - target: {fileID: 7648206850903976, guid: dde56a43abea1c34fb4712e4cb7194bd, type: 3}
+      propertyPath: m_fontSize
+      value: 71.75
+      objectReference: {fileID: 0}
     - target: {fileID: 38366068872547622, guid: dde56a43abea1c34fb4712e4cb7194bd, type: 3}
       propertyPath: m_Pivot.x
       value: 0
