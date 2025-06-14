@@ -84,7 +84,8 @@ public class SpawnInimigos : MonoBehaviour
         }
         if (inimigosVivos.Count == 0)
         {
-            aceleracao = 0f;
+            aceleracao = 0f;//aceleracao volta a 0 quando para nao ficar rapido demais
+            velocidade += 1f;//aumenta a velocidade quando todos os inimigos morrem
             Invoke("InstanciarInimigos", 2f);
 
         }

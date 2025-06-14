@@ -346,7 +346,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inimigoPrefab: {fileID: 1603247020625381075, guid: ad12648760e6e1a45954f4ec2b3cfe57, type: 3}
-  linhas: 4
+  linhas: 3
   colunas: 5
   espacamento: 1
   delaytiro: 1
