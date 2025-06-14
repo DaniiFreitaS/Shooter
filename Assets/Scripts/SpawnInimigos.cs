@@ -16,7 +16,9 @@ public class SpawnInimigos : MonoBehaviour
     public Transform limiteDir;
     public Transform limiteInf;
     public float velocidade = 2f;
+    private float aceleracao = 0f;
     private int direcao = 1;
+    private bool trocaDirecao = false;
 
     private float clock;
     private List<InimigoController> inimigosVivos = new List<InimigoController>();
@@ -36,6 +38,7 @@ public class SpawnInimigos : MonoBehaviour
             Atirar();
         }
         Movimentar();
+        trocaDirecao = false;
     }
 
 
@@ -81,6 +84,7 @@ public class SpawnInimigos : MonoBehaviour
         }
         if (inimigosVivos.Count == 0)
         {
+            aceleracao = 0f;
             Invoke("InstanciarInimigos", 2f);
 
         }
@@ -98,7 +102,7 @@ public class SpawnInimigos : MonoBehaviour
 
     void Movimentar()
     {
-        transform.Translate(Vector3.right * direcao * velocidade * Time.deltaTime);
+        transform.Translate(Vector3.right * direcao * (velocidade + aceleracao) * Time.deltaTime);
 
         // Checa se algum inimigo saiu dos limites
         foreach (var inimigo in inimigosVivos)
@@ -107,10 +111,12 @@ public class SpawnInimigos : MonoBehaviour
             {
                 Time.timeScale = 0f;  //para quando chega no limite inferior, trocar para tela de derrota    
             }
-            if (inimigo.transform.position.x <= limiteEsq.position.x || inimigo.transform.position.x >= limiteDir.position.x)
+            if (!trocaDirecao && ( inimigo.transform.position.x <= limiteEsq.position.x || inimigo.transform.position.x >= limiteDir.position.x ))
             {
                 direcao *= -1;
+                aceleracao += 0.5f; //trocar aqui, nao esta no inspetor porque nao achei necessario alterar a aceleracao
                 transform.position += Vector3.back * 0.5f;
+                trocaDirecao = true;
                 break;
             }
         }

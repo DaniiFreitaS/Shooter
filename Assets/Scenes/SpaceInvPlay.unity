@@ -346,14 +346,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inimigoPrefab: {fileID: 1603247020625381075, guid: ad12648760e6e1a45954f4ec2b3cfe57, type: 3}
-  linhas: 2
-  colunas: 3
-  espacamento: 2
+  linhas: 4
+  colunas: 5
+  espacamento: 1
   delaytiro: 1
   limiteEsq: {fileID: 1943997476}
   limiteDir: {fileID: 1487833564}
   limiteInf: {fileID: 1519370728}
-  velocidade: 5
+  velocidade: 2
 --- !u!4 &285139143
 Transform:
   m_ObjectHideFlags: 0
@@ -3077,17 +3077,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8300000, guid: 91d3d189a56419c489a6469bbc9c7dc0, type: 3}
     - target: {fileID: 4860073643665926518, guid: e6cbaac60d930d14a86a89c6e0199f57, type: 3}
-      propertyPath: playerHit
-      value: 
-      objectReference: {fileID: 8300000, guid: d6bc042e959aece4a805aa33b15e4e1f, type: 3}
-    - target: {fileID: 4860073643665926518, guid: e6cbaac60d930d14a86a89c6e0199f57, type: 3}
       propertyPath: sliderSFX
       value: 
       objectReference: {fileID: 1120054834}
-    - target: {fileID: 4860073643665926518, guid: e6cbaac60d930d14a86a89c6e0199f57, type: 3}
-      propertyPath: playerShoot
-      value: 
-      objectReference: {fileID: 8300000, guid: 47c181a4fbb3c35438818df903da96c0, type: 3}
     - target: {fileID: 4860073643665926518, guid: e6cbaac60d930d14a86a89c6e0199f57, type: 3}
       propertyPath: sliderMusic
       value: 
