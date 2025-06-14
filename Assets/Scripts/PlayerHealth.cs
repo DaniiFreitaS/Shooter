@@ -8,10 +8,13 @@ public class PlayerHealth : MonoBehaviour
     //public TextMeshProUGUI livesText;
     private int currentHealth;
 
+    private AudioMannager AudioMannager;
+
     void Start()
     {
         currentHealth = Health;
         //UpdateLivesText();
+        AudioMannager = FindObjectOfType<AudioMannager>();
     }
 
     void OnTriggerEnter(Collider other)
@@ -26,6 +29,7 @@ public class PlayerHealth : MonoBehaviour
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
+        AudioMannager.PlaySFX(AudioMannager.playerHit);
 
         if (currentHealth <= 0)
         {

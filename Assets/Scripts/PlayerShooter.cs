@@ -6,6 +6,13 @@ public class PlayerShooter : MonoBehaviour
     public float shootCooldown = 1f; 
     private float cooldownTimer = 0f;
 
+    private AudioMannager AudioMannager;
+
+    private void Start()
+    {
+        AudioMannager = FindObjectOfType<AudioMannager>();
+    }
+
     void Update()
     {
         cooldownTimer -= Time.deltaTime;
@@ -17,8 +24,9 @@ public class PlayerShooter : MonoBehaviour
         }
     }
 
-    void Shoot()
+    public void Shoot()
     {
         Instantiate(prefab, transform.position, transform.rotation);
+        AudioMannager.PlaySFX(AudioMannager.playerShoot);
     }
 }

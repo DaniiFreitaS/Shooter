@@ -3077,9 +3077,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8300000, guid: 91d3d189a56419c489a6469bbc9c7dc0, type: 3}
     - target: {fileID: 4860073643665926518, guid: e6cbaac60d930d14a86a89c6e0199f57, type: 3}
+      propertyPath: playerHit
+      value: 
+      objectReference: {fileID: 8300000, guid: d6bc042e959aece4a805aa33b15e4e1f, type: 3}
+    - target: {fileID: 4860073643665926518, guid: e6cbaac60d930d14a86a89c6e0199f57, type: 3}
       propertyPath: sliderSFX
       value: 
       objectReference: {fileID: 1120054834}
+    - target: {fileID: 4860073643665926518, guid: e6cbaac60d930d14a86a89c6e0199f57, type: 3}
+      propertyPath: playerShoot
+      value: 
+      objectReference: {fileID: 8300000, guid: 47c181a4fbb3c35438818df903da96c0, type: 3}
     - target: {fileID: 4860073643665926518, guid: e6cbaac60d930d14a86a89c6e0199f57, type: 3}
       propertyPath: sliderMusic
       value: 
