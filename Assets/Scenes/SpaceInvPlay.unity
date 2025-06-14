@@ -349,7 +349,10 @@ MonoBehaviour:
   linhas: 2
   colunas: 3
   espacamento: 2
-  inimigosVivos: []
+  delaytiro: 1
+  limiteEsq: {fileID: 1943997476}
+  limiteDir: {fileID: 1487833564}
+  velocidade: 2
 --- !u!4 &285139143
 Transform:
   m_ObjectHideFlags: 0
@@ -2743,7 +2746,7 @@ Transform:
   m_GameObject: {fileID: 1487833563}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -10.2, y: 0, z: 17.71}
+  m_LocalPosition: {x: -10.2, y: 0, z: 15}
   m_LocalScale: {x: 19.375065, y: 2.4338, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3147,7 +3150,7 @@ Transform:
   m_GameObject: {fileID: 1943997475}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -10.2, y: 0, z: -17.6}
+  m_LocalPosition: {x: -10.2, y: 0, z: -14}
   m_LocalScale: {x: 19.375065, y: 2.4338, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
