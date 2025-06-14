@@ -11,6 +11,7 @@ public class SpawnInimigos : MonoBehaviour
     public float delaytiro;
 
     //movimentacao grid
+    private Vector3 posicaoInicial;
     public Transform limiteEsq;
     public Transform limiteDir;
     public Transform limiteInf;
@@ -22,6 +23,7 @@ public class SpawnInimigos : MonoBehaviour
     private List<InimigoController> inimigosUltimaLinha = new List<InimigoController>();
     void Start()
     {
+        posicaoInicial = transform.position;
         InstanciarInimigos();
     }
 
@@ -39,6 +41,9 @@ public class SpawnInimigos : MonoBehaviour
 
     void InstanciarInimigos()
     {
+        transform.position = posicaoInicial;
+        inimigosVivos.Clear();
+        inimigosUltimaLinha.Clear();
         for (int i = 0; i < linhas; i++)
         {
             for (int j = 0; j < colunas; j++)
@@ -61,18 +66,34 @@ public class SpawnInimigos : MonoBehaviour
         {
             inimigosVivos.Remove(inimigo);
         }
+        if (inimigosUltimaLinha.Contains(inimigo))
+        {
+            inimigosUltimaLinha.Remove(inimigo);
+        }
+        if(inimigosUltimaLinha.Count == 0){
+            int novaUltimaLinha = 0;
+            foreach (var i in inimigosVivos)
+            {
+                if (i.posicaoLinha > novaUltimaLinha)
+                    novaUltimaLinha = i.posicaoLinha;
+            }
+            inimigosUltimaLinha = inimigosVivos.FindAll(i => i.posicaoLinha == novaUltimaLinha);
+        }
         if (inimigosVivos.Count == 0)
         {
             Invoke("InstanciarInimigos", 2f);
-            
+
         }
     }
 
     void Atirar()
     {
-        int rand = Random.Range(0, inimigosUltimaLinha.Count);
-        EnemyShooter e = inimigosUltimaLinha[rand].GetComponent<EnemyShooter>();
-        e.Shoot();
+        if(inimigosUltimaLinha.Count > 0)
+        {
+            int rand = Random.Range(0, inimigosUltimaLinha.Count);
+            EnemyShooter e = inimigosUltimaLinha[rand].GetComponent<EnemyShooter>();
+            e.Shoot();
+        }
     }
 
     void Movimentar()
