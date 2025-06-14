@@ -3,7 +3,7 @@ using UnityEngine;
 public class Enemybullet : MonoBehaviour
 {
     public float speed = 10f;
-    public float lifetime = 5f;
+    public float lifetime = 20f;
     private void Start()
     {
         Destroy(gameObject, lifetime);
