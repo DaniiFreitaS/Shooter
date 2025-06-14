@@ -4,12 +4,13 @@ using UnityEngine;
 public class SpawnInimigos : MonoBehaviour
 {
     public GameObject inimigoPrefab;
-
     public int linhas;
     public int colunas;
     public float espacamento;
-
-    public List<InimigoController> inimigosVivos = new List<InimigoController>();
+    public float delaytiro;
+    private float clock;
+    private List<InimigoController> inimigosVivos = new List<InimigoController>();
+    private List<InimigoController> inimigosUltimaLinha = new List<InimigoController>();
     void Start()
     {
         InstanciarInimigos();
@@ -17,7 +18,12 @@ public class SpawnInimigos : MonoBehaviour
 
     private void Update()
     {
-        
+        clock -= Time.deltaTime;
+        if (clock < 0)
+        {
+            clock = delaytiro;
+            Atirar();
+        }
     }
 
 
@@ -30,7 +36,9 @@ public class SpawnInimigos : MonoBehaviour
                 Vector3 posicao = new Vector3(j * espacamento, 0, -i * espacamento);
                 GameObject inimigo = Instantiate(inimigoPrefab,transform.position + posicao, Quaternion.identity);
                 InimigoController inimigoController = inimigo.GetComponent<InimigoController>();
+                inimigoController.posicaoLinha = i+1;
                 inimigosVivos.Add(inimigoController);
+                if(i + 1 == linhas) inimigosUltimaLinha.Add(inimigoController);
                 inimigoController.Falecimento += InimigoDestruido;
             }
         }
@@ -47,5 +55,12 @@ public class SpawnInimigos : MonoBehaviour
             Invoke("InstanciarInimigos", 2f);
             
         }
+    }
+
+    void Atirar()
+    {
+        int rand = Random.Range(0, inimigosUltimaLinha.Count);
+        EnemyShooter e = inimigosUltimaLinha[rand].GetComponent<EnemyShooter>();
+        e.Shoot();
     }
 }

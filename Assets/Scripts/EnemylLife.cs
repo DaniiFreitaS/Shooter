@@ -3,11 +3,12 @@ using UnityEngine;
 public class EnemyLife : MonoBehaviour
 {
     public int vida = 1;
-    private HUDPontuacao hud;
+    public HUDPontuacao hud;
+    public InimigoController inimigo;
 
     void Start()
     {
-        hud = FindObjectOfType<HUDPontuacao>();
+        inimigo = gameObject.GetComponent<InimigoController>();
     }
 
     public void TakeDamage(int dano)
@@ -26,8 +27,8 @@ public class EnemyLife : MonoBehaviour
         {
             hud.AdicionarPontos(10);
         }
-
-        Destroy(gameObject);
+        inimigo.Morrer();
+        //Destroy(gameObject);
     }
 
     void OnTriggerEnter(Collider other)

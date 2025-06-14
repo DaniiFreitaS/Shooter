@@ -3,7 +3,7 @@ using System;
 
 public class InimigoController : MonoBehaviour
 {
-    public Transform areaDisparo;
+    public int posicaoLinha;
     public event Action<InimigoController> Falecimento;
     void Start()
     {
