@@ -10,7 +10,7 @@ public class PlayerShooter : MonoBehaviour
 
     private void Start()
     {
-        AudioMannager = FindObjectOfType<AudioMannager>();
+        AudioMannager = FindAnyObjectByType<AudioMannager>();
     }
 
     void Update()

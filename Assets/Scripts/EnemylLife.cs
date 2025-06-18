@@ -9,7 +9,7 @@ public class EnemyLife : MonoBehaviour
 
     void Start()
     {
-        hud = FindObjectOfType<HUDPontuacao>();
+        hud = FindAnyObjectByType<HUDPontuacao>();
 
         inimigoController = GetComponent<InimigoController>();
     }

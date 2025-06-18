@@ -1,11 +1,10 @@
 using UnityEngine;
-//using TMPro;
 using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
     public int Health = 3;
-    //public TextMeshProUGUI livesText;
+    private HUDPontuacao hud;
     private int currentHealth;
 
     private AudioMannager AudioMannager;
@@ -13,8 +12,8 @@ public class PlayerHealth : MonoBehaviour
     void Start()
     {
         currentHealth = Health;
-        //UpdateLivesText();
-        AudioMannager = FindObjectOfType<AudioMannager>();
+        hud = FindAnyObjectByType<HUDPontuacao>();
+        AudioMannager = FindAnyObjectByType<AudioMannager>();
     }
 
     void OnTriggerEnter(Collider other)
@@ -30,21 +29,13 @@ public class PlayerHealth : MonoBehaviour
     {
         currentHealth -= damage;
         AudioMannager.PlaySFX(AudioMannager.playerHit);
+        hud.AtualizarVida(currentHealth);
 
         if (currentHealth <= 0)
         {
             SceneManager.LoadScene("GameOver");
         }
-        else
-        {
-            //UpdateLivesText();
-        }
+        
     }
 
-    /*
-    void UpdateLivesText()
-    {
-        livesText.text = "Vidas: " + currentHealth;
-    }
-    */
 }
